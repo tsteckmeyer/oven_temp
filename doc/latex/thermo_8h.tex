@@ -1,0 +1,125 @@
+\hypertarget{thermo_8h}{}\section{/home/tom/projects/oven/include/thermo.h File Reference}
+\label{thermo_8h}\index{/home/tom/projects/oven/include/thermo.\+h@{/home/tom/projects/oven/include/thermo.\+h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+\subsection*{Functions}
+\begin{Indent}{\bf Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{thermo_8h_a44927eb8e6769589a476e0a75ae54af3}{init\+\_\+max} ()
+\begin{DoxyCompactList}\small\item\em Initialize the M\+A\+X31855. \end{DoxyCompactList}\item 
+void \hyperlink{thermo_8h_a2f35fdb753c6c66810e0fa41bb4b1457}{read\+\_\+max} ()
+\begin{DoxyCompactList}\small\item\em Read the raw value of the M\+A\+X31855. \end{DoxyCompactList}\item 
+short \hyperlink{thermo_8h_afb3f9afb7bf4d24975a0250f991522c5}{read\+\_\+ext\+\_\+temp} ()
+\begin{DoxyCompactList}\small\item\em Read the reference junction temperature. \end{DoxyCompactList}\item 
+short \hyperlink{thermo_8h_a58099bfed9a3e83833b3af805d2531cb}{read\+\_\+int\+\_\+temp} ()
+\begin{DoxyCompactList}\small\item\em Read the thermocouple temperature data. \end{DoxyCompactList}\item 
+short \hyperlink{thermo_8h_ab6811684abc325f7f78504073c09947f}{to\+\_\+degf} (short)
+\begin{DoxyCompactList}\small\item\em Converts temperature data to Fahrenheit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Tom Steckmeyer 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+(C) 2017 Tom Steckmeyer, G\+NU General Public License Version 3 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\index{thermo.\+h@{thermo.\+h}!init\+\_\+max@{init\+\_\+max}}
+\index{init\+\_\+max@{init\+\_\+max}!thermo.\+h@{thermo.\+h}}
+\subsubsection[{\texorpdfstring{init\+\_\+max()}{init_max()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+\_\+max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{thermo_8h_a44927eb8e6769589a476e0a75ae54af3}{}\label{thermo_8h_a44927eb8e6769589a476e0a75ae54af3}
+
+
+Initialize the M\+A\+X31855. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{thermo.\+h@{thermo.\+h}!read\+\_\+ext\+\_\+temp@{read\+\_\+ext\+\_\+temp}}
+\index{read\+\_\+ext\+\_\+temp@{read\+\_\+ext\+\_\+temp}!thermo.\+h@{thermo.\+h}}
+\subsubsection[{\texorpdfstring{read\+\_\+ext\+\_\+temp()}{read_ext_temp()}}]{\setlength{\rightskip}{0pt plus 5cm}short read\+\_\+ext\+\_\+temp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{thermo_8h_afb3f9afb7bf4d24975a0250f991522c5}{}\label{thermo_8h_afb3f9afb7bf4d24975a0250f991522c5}
+
+
+Read the reference junction temperature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the reference temperature data D\mbox{[}15\+:4\mbox{]} 
+\end{DoxyReturn}
+\index{thermo.\+h@{thermo.\+h}!read\+\_\+int\+\_\+temp@{read\+\_\+int\+\_\+temp}}
+\index{read\+\_\+int\+\_\+temp@{read\+\_\+int\+\_\+temp}!thermo.\+h@{thermo.\+h}}
+\subsubsection[{\texorpdfstring{read\+\_\+int\+\_\+temp()}{read_int_temp()}}]{\setlength{\rightskip}{0pt plus 5cm}short read\+\_\+int\+\_\+temp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{thermo_8h_a58099bfed9a3e83833b3af805d2531cb}{}\label{thermo_8h_a58099bfed9a3e83833b3af805d2531cb}
+
+
+Read the thermocouple temperature data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the thermocouple temperature data D\mbox{[}31\+:18\mbox{]} 
+\end{DoxyReturn}
+\index{thermo.\+h@{thermo.\+h}!read\+\_\+max@{read\+\_\+max}}
+\index{read\+\_\+max@{read\+\_\+max}!thermo.\+h@{thermo.\+h}}
+\subsubsection[{\texorpdfstring{read\+\_\+max()}{read_max()}}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{thermo_8h_a2f35fdb753c6c66810e0fa41bb4b1457}{}\label{thermo_8h_a2f35fdb753c6c66810e0fa41bb4b1457}
+
+
+Read the raw value of the M\+A\+X31855. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{thermo.\+h@{thermo.\+h}!to\+\_\+degf@{to\+\_\+degf}}
+\index{to\+\_\+degf@{to\+\_\+degf}!thermo.\+h@{thermo.\+h}}
+\subsubsection[{\texorpdfstring{to\+\_\+degf(short)}{to_degf(short)}}]{\setlength{\rightskip}{0pt plus 5cm}short to\+\_\+degf (
+\begin{DoxyParamCaption}
+\item[{short}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{thermo_8h_ab6811684abc325f7f78504073c09947f}{}\label{thermo_8h_ab6811684abc325f7f78504073c09947f}
+
+
+Converts temperature data to Fahrenheit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Temperature} & to be converted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted temperature 
+\end{DoxyReturn}

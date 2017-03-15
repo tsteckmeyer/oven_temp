@@ -1,0 +1,89 @@
+\hypertarget{keypad_8h}{}\section{/home/tom/projects/oven/include/keypad.h File Reference}
+\label{keypad_8h}\index{/home/tom/projects/oven/include/keypad.\+h@{/home/tom/projects/oven/include/keypad.\+h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+{\ttfamily \#include $<$util/delay.\+h$>$}\\*
+\subsection*{Macros}
+\begin{Indent}{\bf Definition for keypad port}\par
+{\em Default is P\+O\+R\+TD however it may need to be changed depending on the M\+CU being used. }\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries K\+E\+Y\+P\+A\+D\+\_\+\+D\+DR}~D\+D\+RD\hypertarget{keypad_8h_a358ec2f95abaee05de1e4c7c9e0c2b54}{}\label{keypad_8h_a358ec2f95abaee05de1e4c7c9e0c2b54}
+
+\item 
+\#define {\bfseries K\+E\+Y\+P\+A\+D\+\_\+\+P\+O\+RT}~P\+O\+R\+TD\hypertarget{keypad_8h_a523efa4e1291847d32d475a70ae85c24}{}\label{keypad_8h_a523efa4e1291847d32d475a70ae85c24}
+
+\item 
+\#define {\bfseries K\+E\+Y\+P\+A\+D\+\_\+\+P\+IN}~P\+I\+ND\hypertarget{keypad_8h_a417ddce82f95b9e29414c68696238828}{}\label{keypad_8h_a417ddce82f95b9e29414c68696238828}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Functions}
+\begin{Indent}{\bf Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{keypad_8h_a6251d77640c20427e931246b9b1547f0}{keypad\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initalize the keypad by setting the high end of D\+DR to output and the low end to input. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{keypad_8h_a3061f95836b29ed29e910d1af4a8a2ae}{decode\+\_\+key} (void)
+\begin{DoxyCompactList}\small\item\em Decode the binary value of the pressed key by reading the value of the column pin followed by the value of the row pin. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{keypad_8h_a960754a5d6f735729352964c6b5ac303}{get\+\_\+key} (void)
+\begin{DoxyCompactList}\small\item\em Decode the value of the pressed key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Function Documentation}
+\index{keypad.\+h@{keypad.\+h}!decode\+\_\+key@{decode\+\_\+key}}
+\index{decode\+\_\+key@{decode\+\_\+key}!keypad.\+h@{keypad.\+h}}
+\subsubsection[{\texorpdfstring{decode\+\_\+key(void)}{decode_key(void)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char decode\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{keypad_8h_a3061f95836b29ed29e910d1af4a8a2ae}{}\label{keypad_8h_a3061f95836b29ed29e910d1af4a8a2ae}
+
+
+Decode the binary value of the pressed key by reading the value of the column pin followed by the value of the row pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hex value of the selected key 
+\end{DoxyReturn}
+\index{keypad.\+h@{keypad.\+h}!get\+\_\+key@{get\+\_\+key}}
+\index{get\+\_\+key@{get\+\_\+key}!keypad.\+h@{keypad.\+h}}
+\subsubsection[{\texorpdfstring{get\+\_\+key(void)}{get_key(void)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char get\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{keypad_8h_a960754a5d6f735729352964c6b5ac303}{}\label{keypad_8h_a960754a5d6f735729352964c6b5ac303}
+
+
+Decode the value of the pressed key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+face value of selected key 
+\end{DoxyReturn}
+\index{keypad.\+h@{keypad.\+h}!keypad\+\_\+init@{keypad\+\_\+init}}
+\index{keypad\+\_\+init@{keypad\+\_\+init}!keypad.\+h@{keypad.\+h}}
+\subsubsection[{\texorpdfstring{keypad\+\_\+init(void)}{keypad_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void keypad\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{keypad_8h_a6251d77640c20427e931246b9b1547f0}{}\label{keypad_8h_a6251d77640c20427e931246b9b1547f0}
+
+
+Initalize the keypad by setting the high end of D\+DR to output and the low end to input. 
+
+(rows = output; columns = input) 
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}

@@ -1,0 +1,82 @@
+\hypertarget{spi_8h}{}\section{/home/tom/projects/oven/include/spi.h File Reference}
+\label{spi_8h}\index{/home/tom/projects/oven/include/spi.\+h@{/home/tom/projects/oven/include/spi.\+h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+\subsection*{Macros}
+\begin{Indent}{\bf Definition for S\+PI port}\par
+{\em Default is P\+O\+R\+TB however it may need to be changed depending on the M\+CU being used }\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries S\+P\+I\+\_\+\+P\+O\+RT}~P\+O\+R\+TB\hypertarget{spi_8h_a8112c985f7444e82198d7571ce0a9160}{}\label{spi_8h_a8112c985f7444e82198d7571ce0a9160}
+
+\item 
+\#define {\bfseries S\+P\+I\+\_\+\+D\+DR}~D\+D\+RB\hypertarget{spi_8h_a8b07abe3c166558485851f24f2141dc9}{}\label{spi_8h_a8b07abe3c166558485851f24f2141dc9}
+
+\item 
+\#define {\bfseries S\+P\+I\+\_\+\+S\+C\+K\+\_\+\+B\+IT}~1\hypertarget{spi_8h_a7d08e6001ddd8b898cd7a14b0f2750c2}{}\label{spi_8h_a7d08e6001ddd8b898cd7a14b0f2750c2}
+
+\item 
+\#define {\bfseries S\+P\+I\+\_\+\+S\+S\+\_\+\+B\+IT}~0\hypertarget{spi_8h_a0f83ae605004be69dd35c84909277df7}{}\label{spi_8h_a0f83ae605004be69dd35c84909277df7}
+
+\item 
+\#define {\bfseries S\+P\+I\+\_\+\+M\+I\+S\+O\+\_\+\+B\+IT}~2\hypertarget{spi_8h_a81331539b6aaf6b7a1c600eeacba6cb6}{}\label{spi_8h_a81331539b6aaf6b7a1c600eeacba6cb6}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Functions}
+\begin{Indent}{\bf Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi_8h_af26f1306b5b1cb34954f6ac42527fad5}{spi\+\_\+init\+\_\+master} (void)
+\begin{DoxyCompactList}\small\item\em Initialize device as master. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{spi_8h_ad3aa77b3e73a1a4d17f55b3407f31f68}{spi\+\_\+read} (unsigned char)
+\begin{DoxyCompactList}\small\item\em Read data from slave device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Tom Steckmeyer 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+(C) 2017 Tom Steckmeyer, G\+NU General Public License Version 3 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\index{spi.\+h@{spi.\+h}!spi\+\_\+init\+\_\+master@{spi\+\_\+init\+\_\+master}}
+\index{spi\+\_\+init\+\_\+master@{spi\+\_\+init\+\_\+master}!spi.\+h@{spi.\+h}}
+\subsubsection[{\texorpdfstring{spi\+\_\+init\+\_\+master(void)}{spi_init_master(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void spi\+\_\+init\+\_\+master (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi_8h_af26f1306b5b1cb34954f6ac42527fad5}{}\label{spi_8h_af26f1306b5b1cb34954f6ac42527fad5}
+
+
+Initialize device as master. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{spi.\+h@{spi.\+h}!spi\+\_\+read@{spi\+\_\+read}}
+\index{spi\+\_\+read@{spi\+\_\+read}!spi.\+h@{spi.\+h}}
+\subsubsection[{\texorpdfstring{spi\+\_\+read(unsigned char)}{spi_read(unsigned char)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char spi\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{char}
+\end{DoxyParamCaption}
+)}\hypertarget{spi_8h_ad3aa77b3e73a1a4d17f55b3407f31f68}{}\label{spi_8h_ad3aa77b3e73a1a4d17f55b3407f31f68}
+
+
+Read data from slave device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & to trigger read from slave \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data from slave device 
+\end{DoxyReturn}

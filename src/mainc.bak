@@ -1,0 +1,172 @@
+#include <avr/io.h>
+
+#define F_CPU 16000000UL
+
+#include <util/delay.h>
+#include "lcd.h"
+#include "keypad.h"
+
+struct Controller {
+  char temp[3];
+  char hour[1];
+  char minutes[2];
+  int temp_flag;
+  //int hour_flag;
+  //int minute_flag;
+  int time_flag;
+  };
+
+unsigned char main_screen(void);
+unsigned char set_temp(struct Controller *oven);
+unsigned char set_time(struct Controller *oven);
+
+int main(void) {
+  unsigned char key;
+  struct Controller Oven;
+
+  lcd_init(LCD_DISP_ON);
+  keypad_init();
+
+  Oven.temp_flag = 0;
+  //Oven.hour_flag = 0;
+  //Oven.minute_flag = 0;
+  Oven.time_flag = 0;
+  
+  while(Oven.temp_flag == 0 || Oven.time_flag == 0) {
+    key = main_screen();
+    _delay_ms(5);
+
+    if(key == 'A') {
+      lcd_clrscr();
+      set_temp(&Oven);
+      key = 'z';
+      }
+    if(key == 'B') {
+      lcd_clrscr();
+      set_time(&Oven);
+      key = 'z';
+      }
+    }
+
+  lcd_clrscr();
+
+  //char tmp[3];
+  //strcpy(tmp, Oven.temp);
+  //lcd_puts(tmp);
+  //lcd_puts(Oven.hour);
+}
+
+unsigned char main_screen() {
+  unsigned char key;
+
+  lcd_puts("A: Enter Temp");
+  lcd_gotoxy(0,1);
+  lcd_puts("B: Enter Time");
+  
+  while(1) {
+    key = get_key();
+    _delay_ms(5);
+
+    if(key == 'A' || key == 'B' || key == '*')
+      break;
+  }
+  
+  return key;
+}
+
+unsigned char set_temp(struct Controller *oven) {
+  unsigned char key;
+  int i = 0;
+
+  lcd_puts("Enter Temp:");
+  lcd_gotoxy(0,1);
+  lcd_puts("#: Done");
+  lcd_gotoxy(12,0);
+  
+  while(1) {
+    key = get_key();
+    _delay_ms(5);
+
+    if(key != 'z' && key != '#') {
+      oven->temp[i] = key;
+      lcd_putc(key);
+      i++;
+      }
+
+    if(key == '#') {
+      oven->temp_flag = 1;
+      break;
+      }
+    }
+
+    key = 'z';
+    lcd_clrscr();
+
+    return key; 
+  }
+
+unsigned char set_time(struct Controller *oven) {
+  unsigned char key;
+  int i = 0;
+  int hour_flag = 0;
+  int minute_flag = 0;
+
+  if(hour_flag == 0) {
+    lcd_puts("Enter Hours:");
+    lcd_gotoxy(0,1);
+    lcd_puts("#: Done");
+    lcd_gotoxy(13,0);
+
+    while(1) {
+      key = get_key();
+      _delay_ms(5);
+
+      if(key != 'z') {
+        oven->hour[i] = key;
+        lcd_putc(key);
+        i++;
+        }
+
+      if(key == '#') {
+        //oven->hour_flag = 1;
+        hour_flag = 1;
+        break;
+        }
+      }
+    }
+
+  lcd_clrscr();
+  i = 0;
+
+  if(minute_flag == 0) {
+    lcd_puts("Enter Mins:");
+    lcd_gotoxy(0,1);
+    lcd_puts("#: Done");
+    lcd_gotoxy(12,0);
+
+    while(1) {
+      key = get_key();
+      _delay_ms(5);
+
+      if(key != 'z') {
+        oven->minutes[i] = key;
+        lcd_putc(key);
+        i++;
+        }
+
+      if(key == '#') {
+        //oven->minute_flag = 1;
+        minute_flag = 1;
+        break;
+        }
+      }
+    }
+
+  if(hour_flag == 1 && minute_flag == 1)
+    oven->time_flag = 1;
+
+  key = 'z';
+  lcd_clrscr();
+
+  return key;
+  }
