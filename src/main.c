@@ -49,18 +49,19 @@ int main(void) {
   sprintf(h, "%d", hours);
   sprintf(m, "%d", minutes);
 
-  lcd_gotoxy(0,1);
-  lcd_puts("Time:");
-  lcd_gotoxy(6,1);
-  lcd_puts(h);
-  lcd_puts(":");
+  //lcd_gotoxy(0,1);
+  //lcd_puts("Time:");
+  //lcd_gotoxy(6,1);
+  //lcd_puts(h);
+  //lcd_puts(":");
   //lcd_puts(m);
   //lcd_puts(":");
   //lcd_puts("00");
   //cd_gotoxy(1,0);
   //for(hours = 1; hours > 0; hours--) {
-  hours = 1;
-  while(hours >= 0 && minutes >= 0 && seconds >= 0) {
+  hours = 0;
+  minutes = 1;
+  while(hours >= 0 && minutes >= 0 && seconds > 0) {
     char tmp = 0;
     
     sprintf(h, "%d", hours);
@@ -68,8 +69,9 @@ int main(void) {
     if(hours < 10)
       lcd_puts("0");
     lcd_puts(h);
+    lcd_puts(":");
 
-    minutes = 60;
+    //minutes = 60;
     
     while(minutes > 0) {
       tmp = 0;
@@ -81,6 +83,7 @@ int main(void) {
       if(hours < 10)
         lcd_puts("0");
       lcd_puts(h);
+      lcd_puts(":");
       if(minutes < 10)
         lcd_puts(":0");
       else
@@ -98,7 +101,9 @@ int main(void) {
         sprintf(s, "%d", seconds);
         lcd_clrscr();
         if(hours < 10)
-          lcd_puts(h);
+          lcd_puts("0");
+        lcd_puts(h);
+        lcd_puts(":");
         if(minutes < 10)
           lcd_puts(":0");
         else
@@ -115,7 +120,15 @@ int main(void) {
       }
 
     hours--;
+
+    if(hours == 0)
+      minutes = 60;
+    
+    //seconds = 60;
     }
+
+  lcd_clrscr();
+  lcd_puts("Test Complete");
 
   //char choice = '0';
   //unsigned char test = '0';
